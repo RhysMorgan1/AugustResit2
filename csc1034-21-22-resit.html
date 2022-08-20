@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Phillip Lord" />
+  <title>How Receptive Are You?</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">How Receptive Are You?</h1>
+<p class="author">Phillip Lord</p>
+</header>
+<h1 id="resit-project">Resit Project</h1>
+<p>For this project, we will write a piece of software in Python that will analyse protein sequences, produce some numerical results and draw some graphs. We have picked a biological example here for a couple of reasons: the data is freely available; there is quite a lot of data available. The practical is not about the biology though; you could apply many of the same techniques to analyse data from social media, financial data or sensor data about the urban environment. This work is the meat and drink of Python usage these days.</p>
+<p>In this project, I will take you through the steps that I used to build a piece of software, and to turn it into a reasonably well-structured application.</p>
+<h2 id="background">Background</h2>
+<p>Proteins are one of the class of molecules that make up life. Structurally, they are a <em>polymer</em> – that is a long molecule that is made up on a string of small <em>monomers</em>. In the case of proteins there are twenty different kinds of monomer. It is possible to determine the order, or <em>sequence</em>, of these monomers; originally, this was done chemically, but protein sequences can also be inferred from the DNA sequence of an organism. Since the advent of whole genome sequencing technology, we now have access to a very large number of protein sequences from many different kinds of organism. Biologists have collected and collated this data and made it available through various protein databases. Some parts of this process are heavily standardised, others less; for instance, the protein sequence itself is always represented as a string of the letters from the English alphabet, and everyone agrees which letter represents which monomer. The challenge then is to analysis this data in a systematic way.</p>
+<p>We will create a small application which will allow us to analyize proteins across different species (which are organised into a large <em>taxonomy</em>). In the first instance, we will produce some aggregate data for a set of proteins, and draw some graphs.</p>
+<h2 id="starting-off-with-a-sandbox">Starting off with a sandbox</h2>
+<p>I have created an outline project for you which you should have received as a zip file. I have given here instructions for opening this in PyCharm, although you may use any editor.</p>
+<p>We will manage the project and its dependencies again using <code>pip</code>. First make sure that your project is selected. Now go to:</p>
+<p>File -&gt; Settings</p>
+<p>This should give you a menu.</p>
+<p>There is a cog (or “settings” icon) next to the box entitled “Interpreter” at the top right of the dialog. Click on this.</p>
+<p>You can now add a new interpreter. Make sure you have virtualenv selected and make a new environment.</p>
+<p>The location should look something like this: <code>/home/phillord/src/python/panda-2020/venv</code>. You can test this has worked by running a script like so:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="dv">3</span>, sys.executable)</span></code></pre></div>
+<p>This should print out the location of the venv and not the default system python.</p>
+<h2 id="updating-some-files">Updating Some Files</h2>
+<p>Most of the files in this directory should be familiar to you; as you work through the project, you may need to update them. You should update <code>LICENSE.md</code> to reflect that you are joint owner of the copyright of the code. We will update the <code>README.md</code> later.</p>
+<p>Once you have done this, you should commit the work with an appropriate commit message describing the changes that you have made.</p>
+<h2 id="finding-some-protein-data">Finding some protein data</h2>
+<p>I have created a file for you which you can access <code>uniprot_receptor.xml.gz</code>. This contains data about 30,000 proteins.</p>
+<h2 id="protein-sequences-formats">Protein Sequences formats</h2>
+<p>The file format that we have downloaded is a kind of XML – this is a very generic file format that is fairly widely used. It is popular because of its similarity to HTML, which is used to define the Web. XML is a hierarchical format – tags (like <code>&lt;entry&gt;</code>) are placed inside each other to form a tree. If indentation is used to display this structure the start of a UniProt XML file would look like this:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;uniprot xmlns=&quot;http://uniprot.org/uniprot&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://uniprot.org/uniprot http://www.uniprot.org/docs/uniprot.xsd&quot;&gt;
+  &lt;entry dataset=&quot;Swiss-Prot&quot; created=&quot;2011-06-28&quot; modified=&quot;2019-06-05&quot; version=&quot;37&quot; xmlns=&quot;http://uniprot.org/uniprot&quot;&gt;
+    &lt;accession&gt;Q6GZX4&lt;/accession&gt;
+    &lt;name&gt;001R_FRG3G&lt;/name&gt;
+    &lt;protein&gt;
+      &lt;recommendedName&gt;
+        &lt;fullName&gt;Putative transcription factor 001R&lt;/fullName&gt;
+      &lt;/recommendedName&gt;
+    &lt;/protein&gt;
+    &lt;gene&gt;
+      &lt;name type=&quot;ORF&quot;&gt;FV3-001R&lt;/name&gt;
+    &lt;/gene&gt;
+...</code></pre>
+<p>By default, however, the download file looks like this:</p>
+<pre><code>&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39;?&gt;
+&lt;uniprot xmlns=&quot;http://uniprot.org/uniprot&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://uniprot.org/uniprot http://www.uniprot.org/support/docs/uniprot.xsd&quot;&gt;
+&lt;entry dataset=&quot;Swiss-Prot&quot; created=&quot;2006-03-21&quot; modified=&quot;2019-09-18&quot; version=&quot;123&quot;&gt;
+&lt;accession&gt;Q8VCK6&lt;/accession&gt;
+&lt;name&gt;FFAR2_MOUSE&lt;/name&gt;
+&lt;protein&gt;
+&lt;recommendedName&gt;
+&lt;fullName&gt;Free fatty acid receptor 2&lt;/fullName&gt;
+&lt;/recommendedName&gt;
+&lt;organism&gt;
+&lt;name type=&quot;scientific&quot;&gt;Mus musculus&lt;/name&gt;
+&lt;name type=&quot;common&quot;&gt;Mouse&lt;/name&gt;
+&lt;dbReference type=&quot;NCBI Taxonomy&quot; id=&quot;10090&quot;/&gt;
+&lt;lineage&gt;
+&lt;taxon&gt;Eukaryota&lt;/taxon&gt;
+&lt;taxon&gt;Metazoa&lt;/taxon&gt;
+&lt;taxon&gt;Chordata&lt;/taxon&gt;
+&lt;taxon&gt;Craniata&lt;/taxon&gt;
+&lt;taxon&gt;Vertebrata&lt;/taxon&gt;
+&lt;taxon&gt;Euteleostomi&lt;/taxon&gt;
+&lt;taxon&gt;Mammalia&lt;/taxon&gt;
+&lt;taxon&gt;Eutheria&lt;/taxon&gt;
+&lt;taxon&gt;Euarchontoglires&lt;/taxon&gt;
+&lt;taxon&gt;Glires&lt;/taxon&gt;
+&lt;taxon&gt;Rodentia&lt;/taxon&gt;
+&lt;taxon&gt;Myomorpha&lt;/taxon&gt;
+&lt;taxon&gt;Muroidea&lt;/taxon&gt;
+&lt;taxon&gt;Muridae&lt;/taxon&gt;
+&lt;taxon&gt;Murinae&lt;/taxon&gt;
+&lt;taxon&gt;Mus&lt;/taxon&gt;
+&lt;taxon&gt;Mus&lt;/taxon&gt;
+&lt;/lineage&gt;
+&lt;/organism&gt;
+...</code></pre>
+<p>In this case, it’s describing a protein called “FFAR2_MOUSE” which as the name suggests is from mouse or <em>Mus musculus</em> to give it the Latin name; you can see the full taxonomy at the end of the file – in this case, it’s a vertebrate, mammal and a rodent, among other classifications which you may or may not recognise.</p>
+<p>The first problem, however, is that our file ends with the extension <code>.xml.gz</code>. This means that it has been compressed with the <code>gzip</code> utility. We could uncompress it with Windows, but then we would have a much larger file. So, let’s see if we can get Python to read it directly.</p>
+<h2 id="reading-a-gzip-file">Reading a gzip file</h2>
+<p>Fortunately, gzip is a very old utility and widespread, so there is a very good chance that Python will support it. To see, let’s search the documentation. Try a search string like “gzip python”. Depending on your search engine, you will probably get fairly directly to the documentation. The search in my case returns something like:</p>
+<pre><code>gzip — Support for gzip files — Python 3.7.5rc1 documentation
+https://docs.python.org › library › gzip
+The gzip module provides the GzipFile class, as well as the open() ,
+compress() and decompress() convenience functions. The GzipFile class
+reads and writes ...</code></pre>
+<p>So, how to read a gzip file. The documentation tells us right at the beginning: <code>gzip.open</code></p>
+<p>Try writing this code into the uniplot.py:</p>
+<pre class="{python}"><code>import gzip
+for l in gzip.open(&quot;uniprot_receptor.xml.gz&quot;):
+    print(l)</code></pre>
+<p>Now try running this either using PyCharm or Python directly. Python should print out the file uncompressed for you, looking something like this:</p>
+<pre><code>b&quot;&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39;?&gt;\n&quot;
+b&#39;&lt;uniprot xmlns=&quot;http://uniprot.org/uniprot&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://uniprot.org/uniprot http://www.uniprot.org/support/docs/uniprot.xsd&quot;&gt;\n&#39;</code></pre>
+<p>You may wonder what the <code>b</code> in <code>b'&lt;uniprot&gt;</code> means. This is because of the way that Python handles character encoding; the file is using UTF-8 which is a format that can represent many different kinds of character, including pretty much every alphabet in existence. This modified version should work better.</p>
+<pre class="{python}"><code>for l in gzip.open(&quot;uniprot_receptors.xml.gz&quot;):
+    print(l.decode().strip())</code></pre>
+<p>Once you have done this, you should commit the work with an appropriate commit message describing the changes that you have made. For the rest of this practical, you should commit the work when you have made substantial changes as you see fit.</p>
+<h2 id="reading-the-uniprot-xml">Reading the UniProt XML</h2>
+<p>Now we wish to read the UniProt XML. There are two main ways of doing this. First you can use a generic XML parser or you can use one specific for UniProt. Again, searching the documentation will get you rapidly to both of these options. The main XML parser in Python is called <a href="https://docs.python.org/3.10/library/xml.etree.elementtree.html">ElementTree</a>. Alternatively, you may find your way to Biopython which is a set of libraries for analysing biological data. Again, searching around should get you to a variety of documentary resources. I found these two:</p>
+<ul>
+<li><a href="https://biopython.org/DIST/docs/tutorial/Tutorial.html" class="uri">https://biopython.org/DIST/docs/tutorial/Tutorial.html</a></li>
+<li><a href="https://biopython.org/DIST/docs/api/Bio.SeqIO-module.html" class="uri">https://biopython.org/DIST/docs/api/Bio.SeqIO-module.html</a></li>
+</ul>
+<p>One is a tutorial and the other is module documentation. Both are fairly heavy going. However, working through the parts of the documentation, searching for UniProt, I managed to find the solution to this:</p>
+<pre class="{python}"><code>from Bio import SeqIO
+
+handle = gzip.open(&quot;uniprot_receptor.xml.gz&quot;)
+for record in SeqIO.parse(handle, &quot;uniprot-xml&quot;):
+    print(record)</code></pre>
+<p>You may well find that this does not work, because it requires the Biopython dependency which may not be installed on your machine. You should add the dependency to the <code>requirements.txt</code> document by adding the line:</p>
+<pre><code>biopython</code></pre>
+<h2 id="reorganising-our-files">Reorganising our files</h2>
+<p>It’s generally considered bad practice to write all of your code into one place. Our application is going to get more complex at this point. So, let’s move things around a little.</p>
+<p>I have already created a “uniplot” directory for you. We will repackage our code into here. You will notice that this directory contains a single file called <code>__init__.py</code>, which is empty. When looking for modules, Python uses this file to tell us that it should search in the directory that contains it. It doesn’t have to be empty, but it often is.</p>
+<p>Let’s create a file here called <code>cli.py</code> which will contain our command line interface. We will put all of our logic into a single function.</p>
+<pre class="{python}"><code>import gzip
+from Bio import SeqIO
+
+def cli():
+    handle = gzip.open(&quot;uniprot_receptor.xml.gz&quot;)
+    for record in SeqIO.parse(handle, &quot;uniprot-xml&quot;):
+        print(record)</code></pre>
+<p>The file <code>uniplot.py</code> at top-level should be empty. This is probably more minimal than we want, because running it will achieve nothing at all. All we need to do is call the <code>cli</code> function that we have just created. We use another little trick that is fairly standard in Python, which is to check if the file has been executed directly or loaded by Python’s module system. It looks like this:</p>
+<pre><code>from uniplot.cli import cli
+
+if __name__ == &#39;__main__&#39;:
+    cli()</code></pre>
+<p>Python command line applications are often arranged in this way, because they will often need to have slightly different logic for Windows, Linux and Mac. Now our application will run again.</p>
+<h2 id="adding-a-command-line">Adding a command line</h2>
+<p>Next, we want to add some functionality to print out a list of all the proteins in our UniProt file. This turns out to be relatively simple. Instead of printing out the whole record, we just need to print out the name of the record. This can be achieved like so:</p>
+<pre class="{python}"><code>import gzip
+from Bio import SeqIO
+
+def cli():
+    handle = gzip.open(&quot;uniprot_receptor.xml.gz&quot;)
+    for record in SeqIO.parse(handle, &quot;uniprot-xml&quot;):
+        print(record.name)</code></pre>
+<p>This is fine, but there is a problem. We have gained new functionality but lost the original. We need a command line interface, to choose between the two. Again, we try searching for “Python command line interface”. Quite a few of the links here will tell you about the options for the <code>python</code> command, rather than adding your own commands. However, you should also find references to the <code>argparse</code> library which, again, is part of the Python standard library.</p>
+<p>The <code>argparse</code> library is fairly powerful but a little big and complex. We will use a sub-commands interface – these are becoming quite common these days and are convenient enough to use. When I write these, I tend to assign each sub-command to a function call. Argparse doesn’t support this directly, but there is a trick which is to pass the function that you wish to call as a parameter; you can see this working below.</p>
+<pre class="{python}"><code>import argparse
+import gzip
+from Bio import SeqIO
+
+def dump(args):
+    handle = gzip.open(&quot;uniprot_receptor.xml.gz&quot;)
+    for record in SeqIO.parse(handle, &quot;uniprot-xml&quot;):
+        print(record)
+
+def names(args):
+    handle = gzip.open(&quot;uniprot_receptor.xml.gz&quot;)
+    for record in SeqIO.parse(handle, &quot;uniprot-xml&quot;):
+        print(record.name)
+
+def cli():
+    ## Create a new parser
+    parser = argparse.ArgumentParser(prog=&quot;uniplot&quot;)
+
+    subparsers = parser.add_subparsers(help=&quot;Sub Command Help&quot;)
+
+    ## Add subparsers
+    subparsers.add_parser(&quot;dump&quot;).set_defaults(func=dump)
+    subparsers.add_parser(&quot;list&quot;).set_defaults(func=names)
+
+    ## Parse the command line
+    args = parser.parse_args()
+
+    ## Take the func argument, which points to our function and call it.
+    args.func(args)</code></pre>
+<p>Now we can run either:</p>
+<pre><code>python uniplot.py dump
+python uniplot.py list</code></pre>
+<p>The first should print out a lot of stuff, and the second a long list of protein names.</p>
+<h2 id="parsing-in-one-place">Parsing in One place</h2>
+<p>Our code now has two issues. First the code for parsing UniProt is duplicated in two places. Second, our <code>cli.py</code> file is doing two things: parsing the command line and dealing with UniProt. Let’s fix both these at the same time.</p>
+<p>We will create a new file within the <code>uniplot</code> directory called <code>parse.py</code>. This will parse our file and return a list of records. This looks like this:</p>
+<pre class="{python}"><code>import gzip
+from Bio import SeqIO
+
+def uniprot_seqrecords(file_location):
+    records = []
+
+    handle = gzip.open(file_location)
+    for record in SeqIO.parse(handle, &quot;uniprot-xml&quot;):
+        records.append(record)
+
+    return records</code></pre>
+<p>This means, we can simplify our <code>cli.py</code> file. First, we can remove the <code>import</code> statements for <code>gzip</code> and <code>SeqIO</code> because they are now in <code>parse.py</code>. However, we will have to add a new import (but just one!) for <code>parse.py</code>. We will do this using “relative” imports – that is we will identify the file to be imported by its location relative to the current file. Finally, we will put the file location into a constant variable.</p>
+<p>The first part of the file will look like this:</p>
+<pre class="{python}"><code>from . import parse
+
+LOC=&quot;uniprot_receptor.xml.gz&quot;
+
+def dump(args):
+    for record in parse.uniprot_seqrecords(LOC):
+        print(record)</code></pre>
+<p>You will also need to update the <code>names</code> function as well. Once you have done this try running your code again and test that it works.</p>
+<h2 id="how-long-is-a-piece-of-protein">How long is a piece of protein?</h2>
+<p>Next, we want to calculate how long proteins are on average. Biopython allows us to do this fairly straight-forwardly; the <code>SeqRecord</code> that is returned by its parser can be directly interrogated using the <code>len</code> function.</p>
+<p>Now that we are performing more analysis, let’s create another file just for this purpose, called <code>analysis.py</code>. In this, we can add a function which calculates the average length of a set of records. I have left the implementation of this function to you as an exercise.</p>
+<pre class="{python}"><code>def average_len(records):
+    &quot;&quot;&quot;Returns the average len for records.&quot;&quot;&quot;
+    return CALCULATE_THE_AVERAGE_HERE</code></pre>
+<p>To use our average_len function, we will need an import added to the top of the <code>cli.py</code> file with the other imports:</p>
+<pre class="{python}"><code>from . import analysis</code></pre>
+<p>Then, a function that will call it and print the results out:</p>
+<pre class="{python}"><code>def average(args):
+    print(&quot;Average Length is {}&quot;.format(
+        analysis.average_len(parse.uniprot_seqrecords(LOC))))</code></pre>
+<p>And finally, we will need to add another command line option:</p>
+<pre class="{python}"><code>    subparsers.add_parser(&quot;average&quot;).set_defaults(func=average)</code></pre>
+<h2 id="finishing-off-with-a-graph">Finishing off with a graph</h2>
+<p>We will finish off with something moderately complex and rather more visual. First, we are going to extend our average code to summarise the average length for different taxa – so, do viruses, plants, and animals have different length proteins?</p>
+<p>First, we need to calculate the averages by taxa. Biopython returns the taxonomy as a list of words like so:</p>
+<pre class="{python}"><code>record.annotations[&quot;taxonomy&quot;]</code></pre>
+<p>This is a bit tricky to find out from the Biopython documentation. I actually found out by running a Python shell and printing things to screen till I found this answer.</p>
+<p>So, to summarise the results by the top-level taxa, we simply take the first of these elements; we can use this as a key for a dictionary, with a value being the list of the proteins. We then transform this into a dictionary of values, with average lengths.</p>
+<p>Into <code>analysis.py</code> add this method:</p>
+<pre class="{python}"><code>def average_len_taxa(records):
+    &quot;&quot;&quot;Returns the average length for the top level taxa&quot;&quot;&quot;
+    record_by_taxa = {}
+    for r in records:
+        taxa = r.annotations[&quot;taxonomy&quot;][0]
+        record_by_taxa.setdefault(taxa, []).append(r)
+
+    return {taxa:average_len(record) for (taxa, record) in record_by_taxa.items()}</code></pre>
+<p>Now that we have our averages, we will plot them onto a graph. For this, we will use matplotlib which is the best-known plotting tool for Python. It is extensively documented, and has many examples; for example, how to plot a bar chart documentation is here:</p>
+<p><a href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.bar.html" class="uri">https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.bar.html</a></p>
+<p>which you can easily discover again by searching. The stacked bar chart example is the easiest, although still more complex than you need.</p>
+<p><a href="https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/bar_stacked.html#sphx-glr-gallery-lines-bars-and-markers-bar-stacked-py" class="uri">https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/bar_stacked.html#sphx-glr-gallery-lines-bars-and-markers-bar-stacked-py</a></p>
+<p>Reading this, I wrote the following method which will plot a dictionary with string keys and numeric values. Put this function into a final file in the <code>uniplot</code> directory called <code>plot.py</code>.</p>
+<pre><code>import matplotlib.pyplot as plt
+
+def plot_bar_show(d):
+    ## A list of numbers as long as the elements in d
+    r = range(0, len(d))
+    ## Prepare a figure
+    plt.figure()
+
+    ## Add bars, one at each x position, with the values of d
+    plt.bar(r, d.values())
+    ## Add labels to the x-axis, with the keys of d
+    plt.xticks(r, d.keys())
+    ## Squash everything up so there is no white space
+    plt.tight_layout()
+    ## Show the graph
+    plt.show()</code></pre>
+<p>We now need a function to display our averages. Add this code to <code>cli.py</code>.</p>
+<pre><code>def plot_average_by_taxa(args):
+    av = analysis.average_len_taxa(parse.uniprot_seqrecords(LOC))
+    plot.plot_bar_show(av)</code></pre>
+<p>The last piece of code we need will add a new option to the <code>cli</code> function, so that we can run this and display our graph. We have done this several times now, so you should be able to do this for yourself.</p>
+<pre><code>python uniplot.py plot-average-by-taxa</code></pre>
+<p>Finally, this will not run in your project as it stands, but you should recognise the error, its cause and know how to fix the problem. Do this, and finally, you should see a bar chart.</p>
+<h1 id="assessment">Assessment</h1>
+<p>The assessment submission consists of two parts. You should complete them in order. You do not need to complete them all; however, you should complete both the worked practical (1) and most of part 2 to pass.</p>
+<p>Please be aware, that we expect your submitted project to be <em>clean</em> and that if it is not, we may mark negatively. In particular, we expect not to see: non-functional source code, or working-in-progress files; large data files; files created by IDEs or OSs (<code>__MACOSX</code>, or <code>.idea</code>).</p>
+<h2 id="the-worked-practical">1) The Worked Practical</h2>
+<p>First, the code, documentation and configuration that you have written for this practical, including the commit messages and use of git.</p>
+<h2 id="extending-the-work">2) Extending the Work</h2>
+<p>You should extend the work in a number of ways.</p>
+<h3 id="a-project-documentation">a) Project Documentation</h3>
+<p>You should update the project wide documentation. The README.md file should contain a short accurate description of the project, and some information about how to use the application as you have written it. LICENSE.md should up updated with accurate information about the copyright holder for the project. Finally, update the “help” string for the command, including all of the <code>subparsers</code>.</p>
+<h3 id="b-python-documentation">b) Python Documentation</h3>
+<p>The project has a number of functions, some of which have Python docstrings (<code>average_len</code>). Add complete docstrings for all the functions in the project. Please pay careful attention to the <a href="https://www.python.org/dev/peps/pep-0257/">PEP</a> for docstrings.</p>
+<h3 id="c-make-the-uniprot-file-location-configurable">c) Make the UniProt file location configurable</h3>
+<p>Currently, the location of the UniProt file is “hard-coded” as a string in a source. This is rather limited, so add an argument to <code>uniplot</code> which allow setting of the UniProt file.</p>
+<h3 id="d-update-the-average-plot-to-accept-a-depth-option">d) Update the average plot to accept a depth option</h3>
+<p>Currently, the average plot shows just the top-level taxa, and no deeper. Update the code and add an option which allows the user to display the taxa. For example, if the user types:</p>
+<pre><code>python uniplot.py plot --depth=2</code></pre>
+<p>they should see a graph displaying around 30 categories.</p>
+<h3 id="e-make-a-pie-chart">e) Make a pie chart</h3>
+<p>Add a command line option for displaying the number of proteins in different taxa as a pie chart.</p>
+<h2 id="deliverables">Deliverables</h2>
+<p>Your coursework must be submitted to the NESS system by the deadline specified. Note that NESS imposes deadlines rigorously, and even work that is a few seconds late (e.g. because of network delays caused by students all submitting at the last moment) will be flagged as late.</p>
+<p>You should attempt all the sections but do not need to complete all sections to score a passing mark.</p>
+</body>
+</html>

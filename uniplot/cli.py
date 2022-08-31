@@ -1,7 +1,13 @@
 import argparse
 from . import parse
+from . import analysis
 
 LOC="uniprot_receptor.xml.gz"
+
+
+def average(args):
+    print("Average Length is {}".format(
+        analysis.average_len(parse.uniprot_seqrecords(LOC))))
 
 
 def dump(args):
@@ -21,7 +27,7 @@ def cli():
     ## Add subparsers
     subparsers.add_parser("dump").set_defaults(func=dump)
     subparsers.add_parser("list").set_defaults(func=names)
-
+    subparsers.add_parser("average").set_defaults(func=average)
     ## Parse the command line
     args = parser.parse_args()
 

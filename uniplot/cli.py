@@ -5,7 +5,9 @@ from . import plot
 from . import setlocation
 
 
-
+def PieChart(location, args):
+    av = analysis.average_len_taxa(parse.uniprot_seqrecords(location), args.depth)
+    plot.plot_pie_show(av)
 
 def location(args, Location):
     """Used to run functions with the saved location"""
@@ -54,6 +56,7 @@ def cli():
     subparsers.add_parser("plot-average-by-taxa").set_defaults(func=plot_average_by_taxa)
     subparsers.add_parser("location").add_argument("location", type=str, metavar="file_location").set_defaults(func=FileLoc)
     subparsers.add_parser("plot-taxa").add_argument("--depth", type=int, default= 0, metavar="<Leven number>").add_argument("--pie", type=int, default = 0, metavar="1 or 0").set_defaults(run=location, func=plot_average_by_taxa)
+    subparsers.add_parser("pie-chart").add_argument("--depth", type=int, default=0).set_defaults(run=location, func = PieChart)
     ## Parse the command line
     args = parser.parse_args()
 

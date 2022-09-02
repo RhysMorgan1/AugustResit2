@@ -6,6 +6,12 @@ from . import setlocation
 
 
 
+
+
+def FileLoc(input):
+    """Saving the wanted file location"""
+    setlocation.setlocation(input.location)
+
 def plot_average_by_taxa(Fileloc, args):
     av = analysis.average_len_taxa(parse.uniprot_seqrecords(Fileloc))
     plot.plot_bar_show(av)
@@ -37,6 +43,8 @@ def cli():
     subparsers.add_parser("list").set_defaults(func=names)
     subparsers.add_parser("average").set_defaults(func=average)
     subparsers.add_parser("plot-average-by-taxa").set_defaults(func=plot_average_by_taxa)
+
+    File_Location = subparsers.add_parser("location").add_argument("location", type=str, metavar="file_location").set_defaults(func=FileLoc)
     ## Parse the command line
     args = parser.parse_args()
 

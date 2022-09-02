@@ -1,20 +1,23 @@
 import matplotlib.pyplot as plt
 
-def plot_bar_show(d):
-    ## A list of numbers as long as the elements in d
-    r = range(0, len(d))
+def plot_bar_show(d, chartType):
+    """Shows average length of taxonomy in a bar or pie chart"""
+    Average = [i[1] for i in list(d.values())]
 
-    ## Prepare a figure
-    plt.figure()
+    if chartType == 1:
+        plt.pie(Average, labels=d.keys())
+        plt.show
 
-    ## Add bars, one at each x position, with the values of d
-    plt.bar(r, d.values())
+    else:
+        range = range(0, len(d))
+        plt.figure()
+        plt.bar(range, Average)
+        plt.xticks(range, d.keys())
+        plt.xticks(rotation=90)
+        plt.show()
 
-    ## Add labels to the x-axis, with the keys of d
-    plt.xticks(r, d.keys())
-
-    ## Squash everything up so there is no white space
-    plt.tight_layout()
-
-    ## Show the graph
+def plot_pie_show(d):
+    NumofRecords = [i[0] for i in list(d.values())]
+    y = [i + "\n" + str(j[0]) for i, j in d.items()]
+    plt.pie(NumofRecords, labels=y)
     plt.show()

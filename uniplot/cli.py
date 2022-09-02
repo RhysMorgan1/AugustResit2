@@ -7,6 +7,15 @@ from . import setlocation
 
 
 
+def location(args, Location):
+    """Used to run functions with the saved location"""
+    location = setlocation.readlocation()
+    if Location == None:
+        args.func(location, args)
+    else:
+        args.func(Location, args)
+
+
 
 def FileLoc(input):
     """Saving the wanted file location"""
@@ -43,8 +52,8 @@ def cli():
     subparsers.add_parser("list").set_defaults(func=names)
     subparsers.add_parser("average").set_defaults(func=average)
     subparsers.add_parser("plot-average-by-taxa").set_defaults(func=plot_average_by_taxa)
-
-    File_Location = subparsers.add_parser("location").add_argument("location", type=str, metavar="file_location").set_defaults(func=FileLoc)
+    subparsers.add_parser("location").add_argument("location", type=str, metavar="file_location").set_defaults(func=FileLoc)
+    subparsers.add_parser("plot-taxa").add_argument("--depth", type=int, default= 0, metavar="<Leven number>").add_argument("--pie", type=int, default = 0, metavar="1 or 0").set_defaults(run=location, func=plot_average_by_taxa)
     ## Parse the command line
     args = parser.parse_args()
 

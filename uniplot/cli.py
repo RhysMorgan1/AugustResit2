@@ -2,28 +2,28 @@ import argparse
 from . import parse
 from . import analysis
 from . import plot
+from . import setlocation
 
 
-LOC="uniprot_receptor.xml.gz"
 
-def plot_average_by_taxa(args):
-    av = analysis.average_len_taxa(parse.uniprot_seqrecords(LOC))
+def plot_average_by_taxa(Fileloc, args):
+    av = analysis.average_len_taxa(parse.uniprot_seqrecords(Fileloc))
     plot.plot_bar_show(av)
 
 
 
 
-def average(args):
+def average(Fileloc, args):
     print("Average Length is {}".format(
-        analysis.average_len(parse.uniprot_seqrecords(LOC))))
+        analysis.average_len(parse.uniprot_seqrecords(Fileloc))))
 
 
-def dump(args):
-    for record in parse.uniprot_seqrecords(LOC):
+def dump(Fileloc, args):
+    for record in parse.uniprot_seqrecords(Fileloc):
         print(record)
 
-def names(args):
-    for record in parse.uniprot_seqrecords(LOC):
+def names(Fileloc, args):
+    for record in parse.uniprot_seqrecords(Fileloc):
         print(record.name)
 
 def cli():

@@ -54,13 +54,15 @@ def cli():
     subparsers.add_parser("list").set_defaults(func=names)
     subparsers.add_parser("average").set_defaults(func=average)
     subparsers.add_parser("plot-average-by-taxa").set_defaults(func=plot_average_by_taxa)
-    subparsers.add_parser("location").add_argument("location", type=str, metavar="file_location").set_defaults(func=FileLoc)
+    FileLocation = subparsers.add_parser("location")
+    FileLocation.add_argument("location", type=str, metavar="file_location")
+    FileLocation.set_defaults(func=FileLoc)
     subparsers.add_parser("plot-taxa").add_argument("--depth", type=int, default= 0, metavar="<Leven number>").add_argument("--pie", type=int, default = 0, metavar="1 or 0").set_defaults(run=location, func=plot_average_by_taxa)
     subparsers.add_parser("pie-chart").add_argument("--depth", type=int, default=0).set_defaults(run=location, func = PieChart)
     ## Parse the command line
     args = parser.parse_args()
 
     ## Take the func argument, which points to our function and call it.
-    args.func(args)
+    args.func(args, args.Fileloc)
 
 

@@ -57,12 +57,16 @@ def cli():
     FileLocation = subparsers.add_parser("location")
     FileLocation.add_argument("location", type=str, metavar="file_location")
     FileLocation.set_defaults(func=FileLoc)
-    subparsers.add_parser("plot-taxa").add_argument("--depth", type=int, default= 0, metavar="<Leven number>").add_argument("--pie", type=int, default = 0, metavar="1 or 0").set_defaults(run=location, func=plot_average_by_taxa)
-    subparsers.add_parser("pie-chart").add_argument("--depth", type=int, default=0).set_defaults(run=location, func = PieChart)
+    PlotByTaxa = subparsers.add_parser("plot-taxa")
+    PlotByTaxa.add_argument("--piemode", type=int, default = 0)
+    PlotByTaxa.add_argument("--depth", type=int, default=0, metavar="<Leven number>")
+    PlotByTaxa.set_defaults(run=location, func=plot_average_by_taxa)
+    PieChartCommand = subparsers.add_parser("pie-chart")
+    PieChartCommand.add_argument("--depth", type=int, default=0)
+    PieChartCommand.set_defaults(run=location, func = PieChart)
     ## Parse the command line
     args = parser.parse_args()
-
     ## Take the func argument, which points to our function and call it.
-    args.func(args, args.Fileloc)
+    args.func(args.FileLoc)
 
 

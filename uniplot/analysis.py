@@ -1,38 +1,38 @@
-
-
 def average_len(records):
-    i = 0
-    NumRecord = 0
+    """"Return average record length"""
+    count = 0
+    NumberOfRecords = 0
     Average = 0
     for record in records:
-        i += len(record)
-        NumRecord += 1
-    Average = i / NumRecord
+        count = count + len(record)
+        NumberOfRecords += 1
+    Average = count/NumberOfRecords
     return round(Average)
 
-
-def average_len_taxa(records, DataDepth):
-    """Returns the average length for the top level taxa"""
-    record_by_taxa = {}
-    RecordCount = {}
-    RecordNames = {}
-
-    DataDepth = int(DataDepth)
-    if DataDepth > 0:
-        DataDepth = DataDepth -1
+def average_len_taxa(records, depth):
+    """"Return count of records and and teh average for the records"""
+    CountOfRecords = {}
+    TaxaRecord = {}    
+    RecordName = []
+    depth = int(depth)
+    if depth <= 0:
+        depth = 0
+    elif depth > 0:
+        depth = depth - 1
     for record in records:
-        taxa = record.annotations["taxonomy"][DataDepth]
-        if taxa in record_by_taxa:
-            RecordCount[taxa] = RecordCount[taxa] + 1
-            record_by_taxa[taxa][0] = record_by_taxa[taxa][0]+1
-            record_by_taxa[taxa][1] = record_by_taxa[taxa][1] + len(record)
+        taxa = record.annotations["taxonomy"][depth]
+        if taxa in TaxaRecord:
+            CountOfRecords[taxa] = CountOfRecords[taxa] + 1
+            TaxaRecord[taxa][0] = TaxaRecord[taxa][0]+1
+            TaxaRecord[taxa][1] = TaxaRecord[taxa][1] + len(record)
         else:
-            record_by_taxa.setdefault(taxa, [1, len(record)])
-            RecordCount.setdefault(taxa, 1)
-            RecordNames.append(taxa)
-    for i in RecordNames:
-        record_by_taxa[i][1] = record_by_taxa[i][1]/RecordCount[i]
-    return record_by_taxa
+            TaxaRecord.setdefault(taxa, [1, len(record)])
+            CountOfRecords.setdefault(taxa, 1)
+            RecordName.append(taxa)
+    for i in RecordName:
+        TaxaRecord[i][1] = TaxaRecord[i][1]/CountOfRecords[i]
+    return TaxaRecord
+
 
 
 

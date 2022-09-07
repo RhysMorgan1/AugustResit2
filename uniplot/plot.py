@@ -1,23 +1,22 @@
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as mlot
 
-def plot_bar_show(d, chartType):
-    """Shows average length of taxonomy in a bar or pie chart"""
-    Average = [i[1] for i in list(d.values())]
-
-    if chartType == 1:
-        plt.pie(Average, labels=d.keys())
-        plt.show
-
+def display_barplot (d, type):
+    """Show average length of taxa on a pie or bar chart"""
+    AverageLength = [i[1] for i in list(d.values())]
+    if type == 1:
+        mlot.pie(AverageLength, labels=d.keys())
+        mlot.show()
     else:
-        range = range(0, len(d))
-        plt.figure()
-        plt.bar(range, Average)
-        plt.xticks(range, d.keys())
-        plt.xticks(rotation=90)
-        plt.show()
+        Range = range(0, len(d))
+        mlot.figure()
+        mlot.bar(Range, AverageLength)
+        mlot.xticks(Range, d.keys())      
+        mlot.subplots_adjust(bottom=0.3)
+        mlot.show()
 
-def plot_pie_show(d):
-    NumofRecords = [i[0] for i in list(d.values())]
-    y = [i + "\n" + str(j[0]) for i, j in d.items()]
-    plt.pie(NumofRecords, labels=y)
-    plt.show()
+def display_numpie (d):
+    """Show pie chart via taxa category"""
+    NumberOfRecords = [i[0] for i in list(d.values())]
+    y = [i + '\n' + str(j[0]) for i, j in d.items()]
+    mlot.pie(NumberOfRecords, labels=y)
+    mlot.show()

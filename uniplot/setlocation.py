@@ -1,12 +1,12 @@
-def setlocation(input):
-    """Write the desired file location"""
-    MyFile = open("./uniplot/dataloc", "w")
-    MyFile.write(input)
+
+def SaveLocation(var):
+    """Save inputted file location"""
+    MyFile = open('./uniplot/dataloc', 'w')
+    MyFile.write(var)
     MyFile.close()
 
-def readlocation():
-    """Reading the location from teh file"""
-    MyFile = open("./uniplot/location", "r")
+def ReadLocation():
+    """Read the saved location from specified file"""
+    MyFile = open('./uniplot/dataloc', 'r')
     location = MyFile.read()
-    location = location.strip()
-    return location
+    return location.strip()

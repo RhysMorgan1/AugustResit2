@@ -4,8 +4,6 @@ from . import plot
 from . import setlocation
 import argparse
 
-
-
 def PieChartFunc(location, args):
     """Plot records as a pie chart"""
     av = analysis.average_len_taxa(parse.uniprot_seqrecords(location), args.depth)
@@ -14,6 +12,7 @@ def PieChartFunc(location, args):
 def location(UserInput):
     """Save entered file location"""
     setlocation.SaveLocation(UserInput.location)
+
 def FileLocation(args, loco = None):
     """Use teh file locations to run the functions"""
     location = setlocation.ReadLocation()
@@ -21,9 +20,6 @@ def FileLocation(args, loco = None):
         args.func(loco, args)
     else:
         args.func(location, args)
-
-
-
 
 def dump(location, args):
     """Print all records"""
@@ -43,13 +39,6 @@ def plot_average_by_taxa(location, args):
     """Displaygraph of proteins by their taxas"""
     av = analysis.average_len_taxa(parse.uniprot_seqrecords(location), args.depth)
     plot.display_barplot(av, args.piemode)
-
-
-
-
-
-
-
 
 def cli():
     """Parse all arguments from commandline and call appropriate functions"""
